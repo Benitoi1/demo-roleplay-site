@@ -78,7 +78,6 @@ button {
 }
 
 .title {
-    flex: 0 1 auto;
     min-width: 0;
     overflow-wrap: anywhere;
     margin: 0;
@@ -156,6 +155,7 @@ button {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    flex: 1 1 100%;
 }
 
 #auth-form {
@@ -1364,22 +1364,11 @@ body[data-world="afterlife"] #entry-form-message.is-success {
     }
 
     .title {
-        order: 1;
-        flex: 1 1 100%;
         font-size: clamp(1.35rem, 5vw, 1.6rem);
     }
 
     .top-mid {
-        order: 2;
-        flex: 1 1 100%;
-        justify-content: space-between;
         gap: 0.5rem;
-    }
-
-    #world-switch {
-        flex: 0 1 auto;
-        min-width: 0;
-        overflow: hidden;
     }
 
     #world-switch button {
@@ -1394,8 +1383,6 @@ body[data-world="afterlife"] #entry-form-message.is-success {
     }
 
     #auth-container {
-        order: 3;
-        flex: 1 1 100%;
         width: 100%;
     }
 }
