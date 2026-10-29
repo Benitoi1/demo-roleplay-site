@@ -1368,7 +1368,6 @@ body[data-world="afterlife"] #entry-form-message.is-success {
         grid-template-columns: minmax(0, 1fr);
         gap: 0.5rem 0.75rem;
     }
-
     .title {
         grid-column: 1;
         font-size: clamp(1.35rem, 5vw, 1.6rem);
