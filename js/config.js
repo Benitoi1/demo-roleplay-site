@@ -1,5 +1,5 @@
 export const config = {
-  title: 'Хроники волшебной Британии',
+  title: 'Хроники магической Британии',
   mapImage: 'assets/map.png',
   mapAlt: 'Карта Британии'
 };
