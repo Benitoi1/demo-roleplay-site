@@ -23,9 +23,19 @@ body[data-world="afterlife"] {
     color-scheme: dark;
 }
 
-*, *::before, *::after { box-sizing: border-box; }
-[hidden] { display: none !important; }
-html { -webkit-text-size-adjust: 100%; }
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
 
 body {
     margin: 0;
@@ -40,14 +50,21 @@ body {
 button,
 input,
 textarea,
-select { font: inherit; color: inherit; }
+select {
+    font: inherit;
+    color: inherit;
+}
 
-button { cursor: pointer; }
+button {
+    cursor: pointer;
+}
 
 :focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
 }
+
+/* ---------- Шапка ---------- */
 
 .top {
     display: flex;
@@ -60,16 +77,34 @@ button { cursor: pointer; }
     padding: 1.25rem 1rem 0.75rem;
 }
 
-.top-mid {
-    display: contents;
-}
-
 .title {
+    flex: 0 1 auto;
+    min-width: 0;
+    overflow-wrap: anywhere;
     margin: 0;
     font-family: var(--font-display);
     font-size: clamp(1.5rem, 4vw, 2.1rem);
     font-weight: 700;
     letter-spacing: 0.01em;
+}
+
+.top-mid {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 1rem;
+    flex: 0 0 auto;
+}
+
+#world-switch {
+    flex: 0 0 auto;
+}
+
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 0 0 auto;
 }
 
 .segmented {
@@ -115,6 +150,8 @@ button { cursor: pointer; }
     color: var(--accent-ink);
 }
 
+/* ---------- Auth ---------- */
+
 #auth-container {
     display: flex;
     flex-direction: column;
@@ -136,8 +173,13 @@ button { cursor: pointer; }
     font-size: 0.9rem;
 }
 
-#auth-form input[type="email"] { width: 12rem; }
-#auth-form input[type="password"] { width: 9rem; }
+#auth-form input[type="email"] {
+    width: 12rem;
+}
+
+#auth-form input[type="password"] {
+    width: 9rem;
+}
 
 #auth-form button,
 #logout-btn {
@@ -173,12 +215,27 @@ button { cursor: pointer; }
     color: var(--muted);
 }
 
-#auth-message:empty { display: none; }
-#auth-message.is-error { color: #b13322; }
-#auth-message.is-success { color: #8a5310; }
+#auth-message:empty {
+    display: none;
+}
 
-body[data-world="afterlife"] #auth-message.is-error { color: #f28b82; }
-body[data-world="afterlife"] #auth-message.is-success { color: #f2a6c2; }
+#auth-message.is-error {
+    color: #b13322;
+}
+
+#auth-message.is-success {
+    color: #8a5310;
+}
+
+body[data-world="afterlife"] #auth-message.is-error {
+    color: #f28b82;
+}
+
+body[data-world="afterlife"] #auth-message.is-success {
+    color: #f2a6c2;
+}
+
+/* ---------- Табы ---------- */
 
 .tabs {
     display: flex;
@@ -204,6 +261,8 @@ body[data-world="afterlife"] #auth-message.is-success { color: #f2a6c2; }
     font-weight: 600;
 }
 
+/* ---------- Основной контент ---------- */
+
 main {
     max-width: var(--page);
     margin: 0 auto;
@@ -217,7 +276,9 @@ main {
     margin-bottom: 1.25rem;
 }
 
-.subcontrols:empty { display: none; }
+.subcontrols:empty {
+    display: none;
+}
 
 .search {
     width: 100%;
@@ -228,13 +289,17 @@ main {
     background: var(--surface);
 }
 
-.search::placeholder { color: var(--muted); }
+.search::placeholder {
+    color: var(--muted);
+}
 
 .empty {
     margin: 0;
     padding: 2rem 0;
     color: var(--muted);
 }
+
+/* ---------- Таймлайн ---------- */
 
 .timeline {
     margin: 0;
@@ -277,6 +342,8 @@ main {
     margin: 0;
 }
 
+/* ---------- Кликабельные карточки и события ---------- */
+
 .entry.is-clickable,
 .timeline-item.is-clickable {
     cursor: pointer;
@@ -313,6 +380,8 @@ body[data-world="afterlife"] .entry.is-clickable.is-active,
 body[data-world="afterlife"] .timeline-item.is-clickable.is-active {
     background: rgba(242, 166, 194, 0.20);
 }
+
+/* ---------- Карточки записей ---------- */
 
 .entries {
     display: grid;
@@ -352,8 +421,13 @@ body[data-world="afterlife"] .timeline-item.is-clickable.is-active {
     font-size: 0.85rem;
 }
 
-.entry p { margin: 0.4rem 0 0; }
-.entry .entry-meta { margin-top: 0.15rem; }
+.entry p {
+    margin: 0.4rem 0 0;
+}
+
+.entry .entry-meta {
+    margin-top: 0.15rem;
+}
 
 .tags {
     display: flex;
@@ -382,6 +456,8 @@ body[data-world="afterlife"] .timeline-item.is-clickable.is-active {
     border: 1px solid var(--line);
 }
 
+/* ---------- Скелетон ---------- */
+
 .skeleton {
     display: grid;
     grid-template-columns: 1fr;
@@ -392,7 +468,9 @@ body[data-world="afterlife"] .timeline-item.is-clickable.is-active {
 }
 
 @media (min-width: 48rem) {
-    .skeleton { grid-template-columns: 1fr 1fr; }
+    .skeleton {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .skeleton-item {
@@ -409,13 +487,26 @@ body[data-world="afterlife"] .timeline-item.is-clickable.is-active {
     animation: skeleton-shimmer 1.4s ease-in-out infinite;
 }
 
-.skeleton-bar.w-40 { width: 40%; }
-.skeleton-bar.w-60 { width: 60%; }
-.skeleton-bar.w-90 { width: 90%; }
+.skeleton-bar.w-40 {
+    width: 40%;
+}
+
+.skeleton-bar.w-60 {
+    width: 60%;
+}
+
+.skeleton-bar.w-90 {
+    width: 90%;
+}
 
 @keyframes skeleton-shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 #view.is-busy {
@@ -423,6 +514,8 @@ body[data-world="afterlife"] .timeline-item.is-clickable.is-active {
     pointer-events: none;
     transition: opacity 0.15s ease;
 }
+
+/* ---------- Карта ---------- */
 
 .map {
     display: flex;
@@ -444,7 +537,9 @@ body[data-world="afterlife"] .timeline-item.is-clickable.is-active {
     user-select: none;
 }
 
-.map-viewport.is-panning { cursor: grabbing; }
+.map-viewport.is-panning {
+    cursor: grabbing;
+}
 
 .map-stage {
     position: absolute;
@@ -508,7 +603,9 @@ body[data-world="afterlife"] .timeline-item.is-clickable.is-active {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
-.map-zoom button:hover { border-color: var(--accent); }
+.map-zoom button:hover {
+    border-color: var(--accent);
+}
 
 .map-menu {
     position: fixed;
@@ -533,7 +630,9 @@ body[data-world="afterlife"] .timeline-item.is-clickable.is-active {
     font-size: 0.9rem;
 }
 
-.map-menu-item:hover { background: rgba(217, 122, 43, 0.14); }
+.map-menu-item:hover {
+    background: rgba(217, 122, 43, 0.14);
+}
 
 body[data-world="afterlife"] .map-menu-item:hover {
     background: rgba(242, 166, 194, 0.16);
@@ -577,6 +676,8 @@ body[data-world="afterlife"] .map-menu-item:hover {
     line-height: 1;
 }
 
+/* ---------- Боковая карточка (sheet) ---------- */
+
 .sheet {
     position: fixed;
     right: 0;
@@ -610,7 +711,9 @@ body[data-world="afterlife"] .map-menu-item:hover {
     font-size: 1.4rem;
 }
 
-.sheet p { margin: 0; }
+.sheet p {
+    margin: 0;
+}
 
 .entry-details .details-image {
     display: block;
@@ -635,7 +738,11 @@ body[data-world="afterlife"] .map-menu-item:hover {
     font-size: 0.85rem;
 }
 
-.map-viewport.can-pan { touch-action: none; }
+.map-viewport.can-pan {
+    touch-action: none;
+}
+
+/* ---------- Формы ---------- */
 
 .add-form .field-group {
     display: flex;
@@ -683,8 +790,13 @@ body[data-world="afterlife"] .map-menu-item:hover {
     gap: 0.5rem;
 }
 
-.images-strip:empty { display: none; }
-.images-item { position: relative; }
+.images-strip:empty {
+    display: none;
+}
+
+.images-item {
+    position: relative;
+}
 
 .images-item img {
     display: block;
@@ -708,6 +820,8 @@ body[data-world="afterlife"] .map-menu-item:hover {
     line-height: 1;
 }
 
+/* ---------- Галерея ---------- */
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -718,7 +832,9 @@ body[data-world="afterlife"] .map-menu-item:hover {
 }
 
 @media (min-width: 48rem) {
-    .gallery { grid-template-columns: repeat(3, 1fr); }
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .gallery-item {
@@ -745,9 +861,13 @@ body[data-world="afterlife"] .map-menu-item:hover {
     font-size: 0.9rem;
 }
 
-.gallery-item.is-active { outline: 2px solid var(--accent); }
+.gallery-item.is-active {
+    outline: 2px solid var(--accent);
+}
 
-.related { margin-top: 1.25rem; }
+.related {
+    margin-top: 1.25rem;
+}
 
 .related h3 {
     margin: 0 0 0.5rem;
@@ -798,8 +918,14 @@ body[data-world="afterlife"] .map-menu-item:hover {
     text-align: left;
 }
 
-.related-links button > .related-kind { flex-shrink: 0; }
-.related-links .related-name { min-width: 0; overflow-wrap: anywhere; }
+.related-links button>.related-kind {
+    flex-shrink: 0;
+}
+
+.related-links .related-name {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
 
 .related-kind {
     color: var(--accent);
@@ -824,6 +950,8 @@ body[data-world="afterlife"] .map-menu-item:hover {
     border-color: #b13322;
     color: #b13322;
 }
+
+/* ---------- Универсальная форма добавления ---------- */
 
 #entry-form-section {
     max-width: var(--page);
@@ -863,7 +991,9 @@ body[data-world="afterlife"] .map-menu-item:hover {
     font-size: 1rem;
 }
 
-.add-form input[type="file"] { font-size: 0.9rem; }
+.add-form input[type="file"] {
+    font-size: 0.9rem;
+}
 
 .add-form input[type="color"] {
     width: 3.5rem;
@@ -910,12 +1040,25 @@ body[data-world="afterlife"] .map-menu-item:hover {
     font-size: 0.9rem;
 }
 
-#entry-form-message:empty { display: none; }
-#entry-form-message.is-error { color: #b13322; }
-#entry-form-message.is-success { color: #8a5310; }
+#entry-form-message:empty {
+    display: none;
+}
 
-body[data-world="afterlife"] #entry-form-message.is-error { color: #f28b82; }
-body[data-world="afterlife"] #entry-form-message.is-success { color: #f2a6c2; }
+#entry-form-message.is-error {
+    color: #b13322;
+}
+
+#entry-form-message.is-success {
+    color: #8a5310;
+}
+
+body[data-world="afterlife"] #entry-form-message.is-error {
+    color: #f28b82;
+}
+
+body[data-world="afterlife"] #entry-form-message.is-success {
+    color: #f2a6c2;
+}
 
 .floating-add {
     position: fixed;
@@ -932,20 +1075,39 @@ body[data-world="afterlife"] #entry-form-message.is-success { color: #f2a6c2; }
     transition: transform 0.15s ease;
 }
 
-.floating-add:hover { transform: translateY(-2px); }
+.floating-add:hover {
+    transform: translateY(-2px);
+}
+
+/* ---------- Анимации ---------- */
 
 @keyframes sheet-up {
-    from { transform: translateY(100%); }
-    to { transform: translateY(0); }
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
 }
 
 @keyframes sheet-left {
-    from { transform: translateX(100%); }
-    to { transform: translateX(0); }
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
 }
 
+/* ---------- Адаптив ---------- */
+
 @media (min-width: 48rem) {
-    .entries { grid-template-columns: 1fr 1fr; }
+    .entries {
+        grid-template-columns: 1fr 1fr;
+    }
+
     .sheet {
         top: 0;
         left: auto;
@@ -956,21 +1118,22 @@ body[data-world="afterlife"] #entry-form-message.is-success { color: #f2a6c2; }
     }
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 40rem) {
     .tabs {
         position: fixed;
         right: 0;
-        bottom: env(safe-area-inset-bottom, 0px);
+        bottom: 0;
         left: 0;
         z-index: 20;
         gap: 0;
         max-width: none;
         margin: 0;
-        padding: 0;
+        padding: 0 0 env(safe-area-inset-bottom);
         border-top: 1px solid var(--line);
         border-bottom: 0;
         background: var(--surface);
     }
+
     .tabs button {
         flex: 1;
         margin: 0;
@@ -979,26 +1142,52 @@ body[data-world="afterlife"] #entry-form-message.is-success { color: #f2a6c2; }
         border-bottom: 0;
         font-size: 0.85rem;
     }
-    .tabs button[aria-current="page"] { border-top-color: var(--accent); }
-    main { padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px)); }
-}
 
-@media (max-width: 40rem) {
-    .segmented button { padding: 0.45rem 0.8rem; }
+    .tabs button[aria-current="page"] {
+        border-top-color: var(--accent);
+    }
+
+    main {
+        padding-bottom: 6rem;
+    }
+
+    .segmented button {
+        padding: 0.45rem 0.8rem;
+    }
+
     #auth-form input[type="email"],
-    #auth-form input[type="password"] { width: 100%; }
-    #auth-form { width: 100%; }
-    .floating-add { bottom: calc(5rem + env(safe-area-inset-bottom, 0px)); }
+    #auth-form input[type="password"] {
+        width: 100%;
+    }
+
+    #auth-form {
+        width: 100%;
+    }
+
+    .floating-add {
+        bottom: 5rem;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     body,
     .marker,
     .segmented button,
-    .floating-add { transition: none; }
-    .skeleton-bar { animation: none; }
-    .sheet { animation: none; }
+    .floating-add {
+        transition: none;
+    }
+
+    .skeleton-bar {
+        animation: none;
+    }
+
+    .sheet {
+        animation: none;
+    }
 }
+
+/* ---------- Пикеры ссылок ---------- */
 
 .add-form .links-picker {
     border: 1px solid var(--line);
@@ -1038,6 +1227,8 @@ body[data-world="afterlife"] #entry-form-message.is-success { color: #f2a6c2; }
     color: var(--ink);
 }
 
+/* ---------- Прочее ---------- */
+
 .details-back {
     margin: 0 0 0.75rem;
     padding: 0.3rem 0.8rem;
@@ -1071,7 +1262,9 @@ body[data-world="afterlife"] #entry-form-message.is-success { color: #f2a6c2; }
     border-radius: 6px;
 }
 
-.related-links button:hover { border-color: var(--accent); }
+.related-links button:hover {
+    border-color: var(--accent);
+}
 
 .lightbox {
     position: fixed;
@@ -1080,12 +1273,16 @@ body[data-world="afterlife"] #entry-form-message.is-success { color: #f2a6c2; }
     display: grid;
     place-items: center;
     background: rgba(0, 0, 0, 0.88);
+    transition: opacity 0.25s ease;
 }
 
 .lightbox-image {
     max-width: 92vw;
     max-height: 86vh;
     object-fit: contain;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    will-change: transform;
+    touch-action: none;
 }
 
 .lightbox-close,
@@ -1115,8 +1312,13 @@ body[data-world="afterlife"] #entry-form-message.is-success { color: #f2a6c2; }
     transform: translateY(-50%);
 }
 
-.lightbox-prev { left: 0.5rem; }
-.lightbox-next { right: 0.5rem; }
+.lightbox-prev {
+    left: 0.5rem;
+}
+
+.lightbox-next {
+    right: 0.5rem;
+}
 
 .lightbox-counter {
     position: absolute;
@@ -1145,14 +1347,6 @@ body[data-world="afterlife"] #entry-form-message.is-success { color: #f2a6c2; }
     font-size: 1.1em;
 }
 
-.lightbox-image {
-    transition: transform 0.25s ease, opacity 0.25s ease;
-    will-change: transform;
-    touch-action: none;
-}
-
-.lightbox { transition: opacity 0.25s ease; }
-
 .entry-desc {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -1162,46 +1356,43 @@ body[data-world="afterlife"] #entry-form-message.is-success { color: #f2a6c2; }
     margin: 0.4rem 0 0;
 }
 
+/* ---------- Мобильная шапка ---------- */
+
 @media (max-width: 40rem) {
     .top {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
         gap: 0.5rem 0.75rem;
     }
+
     .title {
         order: 1;
         flex: 1 1 100%;
         font-size: clamp(1.35rem, 5vw, 1.6rem);
     }
+
     .top-mid {
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 0.5rem;
         order: 2;
         flex: 1 1 100%;
-        min-width: 0;
+        justify-content: space-between;
+        gap: 0.5rem;
     }
+
     #world-switch {
         flex: 0 1 auto;
         min-width: 0;
-        margin-right: auto;
         overflow: hidden;
     }
+
     #world-switch button {
         padding: 0.35rem 0.55rem;
         font-size: 0.75rem;
         white-space: nowrap;
     }
-    .top-actions {
-        flex: 0 0 auto;
-    }
+
     #logout-btn {
         padding: 0.35rem 0.7rem;
         font-size: 0.8rem;
     }
+
     #auth-container {
         order: 3;
         flex: 1 1 100%;
