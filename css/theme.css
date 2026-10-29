@@ -335,7 +335,6 @@ body[data-world="real"] button.icon-btn.fav-btn[aria-pressed="true"] {
 body[data-world="afterlife"] .title {
     font-weight: 300;
     letter-spacing: 0.02em;
-    font-size: clamp(1.15rem, 2.6vw, 1.6rem);
     text-transform: none;
 }
 
